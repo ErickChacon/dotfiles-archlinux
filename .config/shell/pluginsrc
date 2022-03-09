@@ -1,0 +1,129 @@
+#!/bin/sh
+
+# pwd without home
+function pwd_short() {
+    local current=$(pwd)
+    if [ $current = $HOME ]; then
+        current=""
+    else
+        current=${current/"$HOME"/}
+    fi
+    echo $current
+}
+
+# docker functions
+if [ -x "$(command -v docker)" ]; then
+
+    stop-docker() {
+    docker stop ${1:-global-docker}
+    }
+
+    # execute bash on container
+    bs() {
+      local current=$(pwd_short)
+      if [[ $# > 1 ]]; then
+        docker exec -it --user $2 -w /home/rstudio$current ${1:-global-docker} bash
+      else
+        docker exec -it -w /home/rstudio$current ${1:-global-docker} bash
+      fi
+    }
+    # --user ${2:-rstudio}
+
+    # docker-compose rm
+    dcomp-rm(){
+    docker compose --file \
+        ${2:-~/documents/repositories/toolbox/docker-compose.yml} \
+        rm --f ${1:-}
+    }
+
+    # docker-compose down
+    dcomp-down(){
+    docker compose --file \
+        ${1:-~/documents/repositories/toolbox/docker-compose.yml} \
+        down
+    }
+
+    # docker-compose build
+    dcomp-build(){
+    docker compose --file \
+        ${2:-~/documents/repositories/toolbox/docker-compose.yml} \
+        build --build-arg UID=$(id -u) --build-arg GID=$(id -g) ${1:-r}
+    }
+
+    # docker-compose run
+    dcomp-run(){
+    mkdir -p /tmp/local && \
+    XAUTH=/tmp/.docker.xauth && \
+        xauth nlist :0 | sed -e "s/^..../ffff/" | xauth -f $XAUTH nmerge - && \
+        docker compose --file \
+        ${3:-~/documents/repositories/toolbox/docker-compose.yml} \
+        run --name toolbox_${1:-r} --rm --service-ports ${2:---detach} ${1:-r} bash
+    }
+
+    # docker-compose exec
+    dcomp-exec(){
+    local current=$(pwd_short)
+    local what=${1:-r}
+    if [ $what = "r" ]; then
+        user=rstudio
+    elif [ $what = "julia" ]; then
+        user=julia
+    elif [ $what = "juliat" ]; then
+        user=julia
+    else
+        user=rstudio
+    fi
+    docker exec -ti -w /home/$user$current toolbox_$what bash
+    }
+
+fi
+
+# # nvim shortcut
+# if ! [ -x "$(command -v docker)" ]; then
+#     alias vm="nvim"
+# else
+#     vm() {
+#         local current=$(pwd_short)
+#         docker exec -it -w /home/rstudio$current global-docker nvim $1
+#     }
+# fi
+
+
+# # tx shortcut
+# if ! [ -x "$(command -v docker)" ]; then
+#     alias tx='tmux'
+# else
+#     tx() {
+#         local current=$(pwd_short)
+#         docker exec -it -w /home/rstudio$current global-docker tmux
+#     }
+# fi
+
+# open tmux projects on container
+if ! [ -x "$(command -v docker)" ]; then
+    txo() {
+        ~/.tmux/proj-$1 $2
+    }
+else
+    txoo() {
+        local current=$(pwd_short)
+        docker exec -it -w /home/rstudio$current ${3:-global-docker} \
+            /home/rstudio/.tmux/proj-$1 $2
+    }
+    txo() {
+        ~/.config/tmux/proj-$1 $2
+    }
+fi
+
+
+# # execute R on container
+# R2() {
+#   local current=$(pwd_short)
+#   docker exec -it -w /home/rstudio$current global-docker R
+# }
+#
+# newcol() {
+#   bash $HOME/.local/bin/colors-i3-config.sh ${1:-true}
+#   i3-msg reload
+#   i3-msg restart
+# }

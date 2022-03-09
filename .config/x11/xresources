@@ -1,0 +1,45 @@
+st.font: DroidSansMono Nerd Font:size=12:antialias=true:autohint=true;
+st.alpha: 0.92
+
+!! gruvbox:
+*.color0: #3c3836
+*.color1: #b8bb26
+*.color2: #83a598
+*.color3: #83a598
+*.color4: #928374
+*.color5: #83a598
+*.color6: #fabd2f
+*.color7: #fe8019
+*.color8: #665c54
+*.color9: #ebdbb2
+*.color10: #8ec07c
+*.color11: #d3869b
+*.color12: #d3869b
+*.color13: #b8bb26
+*.color14: #8ec07c
+*.color15: #ebdbb2
+*.background: #32302f
+*.foreground: #ebdbb2
+*.cursorColor: white
+
+! : "#222222";
+! : "#444444";
+! : "#bbbbbb";
+! : "#eeeeee";
+! : "#005577";
+
+
+! : "#222222";
+! : "#444444";
+! : "#bbbbbb";
+! : "#eeeeee";
+! : "#005577";
+! : "#fb4934"
+
+! col_cyan: background in selection mode
+! col_gray1: main background
+! col_gray2: border in normal mode
+
+! col_gray3: fontground in normal mode
+! col_gray4: fontground in selection mode
+! col_title: fontground of title
