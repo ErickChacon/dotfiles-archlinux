@@ -8,6 +8,7 @@ echo $path_dotfiles
 path_zprofile=~/.zprofile
 path_bash_profile=~/.bash_profile
 path_bashrc=~/.bashrc
+path_zsh=~/.config/zsh
 
 path_lf=~/.config/lf
 path_nvim=~/.config/nvim
@@ -67,7 +68,7 @@ linkdir $path_dotfiles/.config/nvim $path_nvim $overwrite
 linkdir $path_dotfiles/.config/shell $path_shell $overwrite
 linkdir $path_dotfiles/.config/tmux $path_tmux $overwrite
 linkdir $path_dotfiles/.config/x11 $path_x11 $overwrite
-linkdir $path_dotfiles/.config/zathura $path_zathura $overwrite
+linkdir $path_dotfiles/.config/zsh $path_zsh $overwrite
 
 
 
