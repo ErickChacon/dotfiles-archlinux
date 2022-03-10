@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# pwd without home
+# Print work directory without "~"
 function pwd_short() {
     local current=$(pwd)
     if [ $current = $HOME ]; then
@@ -11,7 +11,7 @@ function pwd_short() {
     echo $current
 }
 
-# docker functions
+# Docker functions
 if [ -x "$(command -v docker)" ]; then
 
     stop-docker() {
@@ -78,6 +78,11 @@ if [ -x "$(command -v docker)" ]; then
 
 fi
 
+# Open tmux projects
+txo() {
+    $HOME/.config/tmux/proj-$1
+}
+
 # # nvim shortcut
 # if ! [ -x "$(command -v docker)" ]; then
 #     alias vm="nvim"
@@ -99,21 +104,21 @@ fi
 #     }
 # fi
 
-# open tmux projects on container
-if ! [ -x "$(command -v docker)" ]; then
-    txo() {
-        ~/.tmux/proj-$1 $2
-    }
-else
-    txoo() {
-        local current=$(pwd_short)
-        docker exec -it -w /home/rstudio$current ${3:-global-docker} \
-            /home/rstudio/.tmux/proj-$1 $2
-    }
-    txo() {
-        ~/.config/tmux/proj-$1 $2
-    }
-fi
+# # open tmux projects on container
+# if ! [ -x "$(command -v docker)" ]; then
+#     txo() {
+#         ~/.config/tmux/proj-$1
+#     }
+# else
+#     txoo() {
+#         local current=$(pwd_short)
+#         docker exec -it -w /home/rstudio$current ${3:-global-docker} \
+#             /home/rstudio/.tmux/proj-$1 $2
+#     }
+#     txo() {
+#         ~/.config/tmux/proj-$1
+#     }
+# fi
 
 
 # # execute R on container
