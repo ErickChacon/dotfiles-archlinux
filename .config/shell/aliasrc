@@ -10,5 +10,9 @@ alias \
 	diff="diff --color=auto" \
 	ccat="highlight --out-format=ansi"
 
+# Custom aliases with config files
+# alias \
+#         abook="abook --datafile $HOME/.cache/abook/addressbook"
+
 # Use $XINITRC variable if file exists.
 [ -f "$XINITRC" ] && alias startx="startx $XINITRC"

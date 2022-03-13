@@ -50,7 +50,7 @@ function Organize(root_path, ...)
     end
 endfunction
 
-let g:org_root = '~/Documents/Organizer'
+let g:org_root = '~/documents/organizer'
 let g:org_academic = g:org_root . '/academic'
 let g:org_personal = g:org_root . '/personal'
 let g:org_todo = g:org_root . '/todo'
