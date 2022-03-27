@@ -76,6 +76,8 @@ inoremap <esc> <nop>
 vnoremap jk <Esc>
 vnoremap <esc> <nop>
 tnoremap jk <C-\><C-n>
+snoremap jk <Esc>
+snoremap <esc> <nop>
 
 " " Mapping to close brackets
 " inoremap ( ()<left>
@@ -102,12 +104,12 @@ imap <right> <nop>
 nnoremap <leader>ve :split $MYVIMRC<cr>
 nnoremap <leader>vs :source $MYVIMRC<cr>
 
-" chunk
-call textobj#user#plugin('chunk', {
-\   'angle': {
-\     'pattern': ['^```[{a-z]', '^```$'],
-\     'select-a': 'ac',
-\     'select-i': 'ic',
-\   },
-\ })
-
+" " chunk
+" call textobj#user#plugin('chunk', {
+" \   'angle': {
+" \     'pattern': ['^```[{a-z]', '^```$'],
+" \     'select-a': 'ac',
+" \     'select-i': 'ic',
+" \   },
+" \ })
+"

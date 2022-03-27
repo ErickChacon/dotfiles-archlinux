@@ -1,6 +1,5 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
-
 " Aesthetics
 Plug 'edkolev/tmuxline.vim'            , {'commit': '1142333'}  " tmux statusline
 Plug 'kshenoy/vim-signature'           , {'commit': '6bc3dd1'}  " display marks

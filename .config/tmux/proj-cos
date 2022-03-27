@@ -22,14 +22,15 @@ else
     tmux rename-window "Scripts I"
     tmux send-keys 'nvim' C-m
 
-    # window: scripts 2
-    tmux new-window -c "$HOME/documents/repositories/ChangeOfSupport/docs/src"
-    tmux rename-window "Scripts II"
+    # window: package
+    tmux new-window -c "$HOME/documents/repositories/changeofsupport"
+    tmux rename-window "Package"
     tmux send-keys 'nvim' C-m
 
-    # window: package
-    tmux new-window -c "$HOME/documents/repositories/ChangeOfSupport"
-    tmux rename-window "Package"
+
+    # window: scripts 2
+    tmux new-window -c "$HOME/documents/repositories/changeofsupport/docs/src"
+    tmux rename-window "Documentation"
     tmux send-keys 'nvim' C-m
 
     # # window: makefile

@@ -40,8 +40,8 @@ let g:netrw_special_syntax = 1
 " Line numbering
 let g:netrw_bufsettings="noma nomod nonu nobl nowrap ro rnu"
 
-" Vim-bufsurf {{{1
-
-nnoremap <silent> <BS> :BufSurfBack<CR>
-nnoremap <silent> <F2> :BufSurfForward<CR>
-
+" " Vim-bufsurf {{{1
+"
+" nnoremap <silent> <BS> :BufSurfBack<CR>
+" nnoremap <silent> <F2> :BufSurfForward<CR>
+"

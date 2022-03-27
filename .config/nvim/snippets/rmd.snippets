@@ -1,0 +1,39 @@
+snippet yam
+        ---
+        title: "${1}"
+        author: "Erick A. Chacón-Montalván"
+        date: "\`r format(Sys.time(), '%d %B %Y, %H:%M:%S', usetz = TRUE)\`"
+        output: rmarkdown::html_vignette
+        ---
+
+        ```{r setup, include = FALSE}
+        knitr::opts_chunk$set(echo = TRUE, fig.align = "center")
+        knitr::opts_chunk$set(fig.width = 6, fig.height = 4)
+        knitr::opts_chunk$set(comment = "#>")
+        options(width = 100)
+        ```
+        ${2}
+
+snippet yaml
+        ---
+        title: "${1}"
+        date: 2021-${2}
+        categories: cat
+        tags: tag
+        ---
+        ${3}
+
+snippet cr
+        ```{r}
+        ${1}
+        ```
+
+snippet cj
+        ```{julia}
+        ${1}
+        ```
+
+snippet cp
+        ```{python}
+        ${1}
+        ```
