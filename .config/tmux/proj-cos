@@ -38,10 +38,10 @@ else
     # tmux rename-window "Makefile"
     # tmux send-keys "nvim Makefile" C-m
 
-    # window: paper
-    tmux new-window -c "$proj/writing/paper-change-of-support"
-    tmux rename-window "Paper"
-    tmux send-keys 'nvim' C-m
+    # # window: paper
+    # tmux new-window -c "$proj/writing/paper-change-of-support"
+    # tmux rename-window "Paper"
+    # tmux send-keys 'nvim' C-m
 
     # focus on window:
     tmux select-window -t "Scripts I"

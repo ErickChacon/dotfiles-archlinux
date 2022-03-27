@@ -4,7 +4,7 @@ require("tmux").setup({
     },
     navigation = {
         cycle_navigation = false,
-        enable_default_keybindings = false,
+        enable_default_keybindings = true,
     },
     resize = {
         enable_default_keybindings = false,
@@ -15,12 +15,8 @@ require("tmux").setup({
 
 local keymaps = require("tmux.keymaps")
 keymaps.register("n", {
-    ["<C-h>"] = [[<cmd>lua require('tmux').resize_left()<cr>]],
-    ["<C-j>"] = [[<cmd>lua require('tmux').resize_bottom()<cr>]],
-    ["<C-k>"] = [[<cmd>lua require('tmux').resize_top()<cr>]],
-    ["<C-l>"] = [[<cmd>lua require('tmux').resize_right()<cr>]],
-    ["<C-w>h"] = [[<cmd>lua require('tmux').move_left()<cr>]],
-    ["<C-w>j"] = [[<cmd>lua require('tmux').move_bottom()<cr>]],
-    ["<C-w>k"] = [[<cmd>lua require('tmux').move_top()<cr>]],
-    ["<C-w>l"] = [[<cmd>lua require('tmux').move_right()<cr>]],
+    ["<C-a>h"] = [[<cmd>lua require('tmux').resize_left()<cr>]],
+    ["<C-a>j"] = [[<cmd>lua require('tmux').resize_bottom()<cr>]],
+    ["<C-a>k"] = [[<cmd>lua require('tmux').resize_top()<cr>]],
+    ["<C-a>l"] = [[<cmd>lua require('tmux').resize_right()<cr>]],
 })
