@@ -22,6 +22,13 @@ function Sanitize(path)
     return fullpath
 endfunction
 
+function Cd()
+    let folder = expand('%:p:h')
+    echo folder
+    :execute 'cd' folder
+endfunction
+
+
 function Makedir(path)
     let filepath = a:path
     let folder = fnamemodify(filepath, ':p:h')
@@ -73,6 +80,10 @@ command! Todo
 
 command! Daily
       \ call Organize(g:org_todo, "daily.md")
+
+command! Cd
+      \ call Cd()
+
 
 " nnoremap <unique><script> <Plug>Organizer :Organize<CR>
 " nnoremap <unique><script> <Plug>gff :call Gofile()<CR>

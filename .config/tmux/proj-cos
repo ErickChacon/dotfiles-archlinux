@@ -22,26 +22,24 @@ else
     tmux rename-window "Scripts I"
     tmux send-keys 'nvim' C-m
 
-    # window: package
-    tmux new-window -c "$HOME/documents/repositories/changeofsupport"
-    tmux rename-window "Package"
-    tmux send-keys 'nvim' C-m
+    if [[ "$1" == *dev* ]]; then
+        # window: package documentation
+        tmux new-window -c "$HOME/documents/repositories/changeofsupport/docs/src"
+        tmux rename-window "Documentation"
+        tmux send-keys 'nvim' C-m
 
+        # window: package source
+        tmux new-window -c "$HOME/documents/repositories/changeofsupport/src"
+        tmux rename-window "Package"
+        tmux send-keys 'nvim' C-m
+    fi
 
-    # window: scripts 2
-    tmux new-window -c "$HOME/documents/repositories/changeofsupport/docs/src"
-    tmux rename-window "Documentation"
-    tmux send-keys 'nvim' C-m
-
-    # # window: makefile
-    # tmux new-window -c "$proj"
-    # tmux rename-window "Makefile"
-    # tmux send-keys "nvim Makefile" C-m
-
-    # # window: paper
-    # tmux new-window -c "$proj/writing/paper-change-of-support"
-    # tmux rename-window "Paper"
-    # tmux send-keys 'nvim' C-m
+    if [[ "$1" == *write* ]]; then
+        # window: paper
+        tmux new-window -c "$proj/writing/paper-change-of-support"
+        tmux rename-window "Paper"
+        tmux send-keys 'nvim' C-m
+    fi
 
     # focus on window:
     tmux select-window -t "Scripts I"

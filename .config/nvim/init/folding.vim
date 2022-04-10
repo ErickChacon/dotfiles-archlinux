@@ -27,3 +27,8 @@ set foldtext=MyFoldText()                    " custom fold text
 set foldlevel=1                              " fold always
 set foldcolumn=2                             " fold column
 hi! link FoldColumn Statement                " fold column color
+
+
+" " Folding setting
+" set foldmethod=expr                        " marker to fold
+" set foldexpr=nvim_treesitter#foldexpr()                    " custom fold text

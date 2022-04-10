@@ -1,23 +1,3 @@
-" Nerdtree {{{1
-
-" set splitright
-" let g:netrw_winsize = 20
-" let g:netrw_browse_split = 4
-" let g:netrw_banner = 0
-" map <leader>n :NERDTreeToggle<CR>
-" let NERDTreeMapOpenSplit='v'
-" let NERDTreeMapOpenVSplit=';'
-" let NERDTreeMapOpenInTab='T'
-" let NERDTreeMapOpenInTabSilent='t'
-" let NERDTreeWinSize = 25
-" let NERDTreeIgnore = ['\.aux$', '\.fdb_latexmk$', '\.fls', '\.log', '\.out',
-"       \ '\.synctex.gz']
-"
-" function! NERDTreeHighlightFile(extension, fg, bg, guifg)
-" exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guifg='. a:guifg
-" exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
-" endfunction
-
 " Netrw {{{1
 
 " Appearence
@@ -40,8 +20,8 @@ let g:netrw_special_syntax = 1
 " Line numbering
 let g:netrw_bufsettings="noma nomod nonu nobl nowrap ro rnu"
 
-" " Vim-bufsurf {{{1
-"
-" nnoremap <silent> <BS> :BufSurfBack<CR>
-" nnoremap <silent> <F2> :BufSurfForward<CR>
-"
+" Vim-bufsurf {{{1
+
+nmap <BS> <Plug>(buf-surf-back)
+nmap <F2> <Plug>(buf-surf-forward)
+

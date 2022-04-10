@@ -8,23 +8,18 @@ augroup end
 
 -- Plugins
 return require('packer').startup(function()
-
     -- Package manager
     use 'wbthomason/packer.nvim'
 
-    -- Aesthetics
-    use 'edkolev/tmuxline.vim'
-    use {'chentau/marks.nvim', config = function() require('user.marks') end }
-    use 'ntpeters/vim-better-whitespace'
+    -- Tree-sitter: highlighting and indentation
+    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
-    -- Colorschemes
-    use 'morhetz/gruvbox'
-
-    -- Comment
-    use {'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
+    -- Comment (better experience with nvim-treesitter), sorround, bullets
+    use {'numToStr/Comment.nvim', config = function() require('Comment').setup() end}
+    use 'tpope/vim-surround'
+    use 'dkarter/bullets.vim'
 
     -- Completion
-    use 'jpalardy/vim-slime'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/nvim-cmp'
@@ -34,17 +29,26 @@ return require('packer').startup(function()
     use 'saadparwaiz1/cmp_luasnip'
     use 'honza/vim-snippets'
 
-    -- Motions
-    use 'tpope/vim-surround'
+    -- Fuzzy finder
+    use {'nvim-telescope/telescope.nvim',
+        requires = {'nvim-lua/plenary.nvim'}
+    }
+
+    -- Aesthetics and colorschemes
+    use 'edkolev/tmuxline.vim'
+    use {'chentau/marks.nvim', config = function() require('user.marks') end}
+    use 'ntpeters/vim-better-whitespace'
+    use 'morhetz/gruvbox'
+
+    -- Repl and navigation
+    use 'jpalardy/vim-slime'
+    use {'aserowy/tmux.nvim', config = function() require('user.tmux') end}
+    use 'ton/vim-bufsurf'
+    use {'jghauser/follow-md-links.nvim',
+        requires = {'nvim-treesitter/nvim-treesitter'}
+    }
 
     -- Languages
     use 'JuliaEditorSupport/julia-vim'
-
-    -- Note taking
-    use 'dkarter/bullets.vim'
-
-    -- Tmux
-    use {'aserowy/tmux.nvim', config = function() require('user.tmux') end}
-
 end)
 

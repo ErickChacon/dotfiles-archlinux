@@ -29,6 +29,7 @@ elseif g:scheme_name == "gruvbox"
   let g:gruvbox_contrast_light = "soft"
   colorscheme gruvbox
   hi link Function GruvboxAqua
+  hi link Operator GruvboxRed
 elseif g:scheme_name == "material-theme"
   colorscheme material-theme
   hi Conceal guibg=NONE guifg=#F77669 gui=none

@@ -10,7 +10,7 @@ if has_session; then
     tmux attach-session -t $project_name -d
 else
   # main work directory:
-  proj="$HOME/Documents/Organizer/"
+  proj="$HOME/documents/organizer/"
   tmux new-session -d -c $proj -s $project_name
   # window 1: vimwiki
   tmux rename-window "Notes"

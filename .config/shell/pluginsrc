@@ -82,7 +82,7 @@ fi
 
 # Open tmux projects
 txo() {
-    $HOME/.config/tmux/proj-$1
+    $HOME/.config/tmux/proj-$1 $2
 }
 
 # # nvim shortcut
