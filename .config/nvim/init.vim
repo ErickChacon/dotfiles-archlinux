@@ -19,7 +19,6 @@ so ~/.config/nvim/init/navigation.vim
 " so ~/.config/nvim/init/languageserver.vim
 lua require('user.completion')
 so ~/.config/nvim/init/repl.vim
-lua require('user.treesitter')
 so ~/.config/nvim/init/telescope.vim
 
 " " languages

@@ -1,0 +1,47 @@
+#!/bin/sh
+
+project_name='Double-burden'
+
+has_session() {
+    tmux has-session -t $project_name 2>/dev/null
+}
+
+if has_session; then
+    tmux attach-session -t $project_name -d
+else
+    bigproj="$HOME/documents/projects"
+    proj="$bigproj/amazonia-double-burden"
+    tmux new-session -d -c $proj -s $project_name
+
+    # window: notes
+    tmux rename-window "Notes"
+    tmux send-keys "nvim README.md" C-m
+
+    # window: scripts 1
+    tmux new-window -c $proj
+    tmux rename-window "Scripts I"
+    tmux send-keys 'nvim' C-m
+
+    # if [[ "$1" == *dev* ]]; then
+    #     # window: package documentation
+    #     tmux new-window -c "$HOME/documents/repositories/changeofsupport/docs/src"
+    #     tmux rename-window "Documentation"
+    #     tmux send-keys 'nvim' C-m
+    #
+    #     # window: package source
+    #     tmux new-window -c "$HOME/documents/repositories/changeofsupport/src"
+    #     tmux rename-window "Package"
+    #     tmux send-keys 'nvim' C-m
+    # fi
+    #
+    # if [[ "$1" == *write* ]]; then
+    #     # window: paper
+    #     tmux new-window -c "$proj/writing/paper-change-of-support"
+    #     tmux rename-window "Paper"
+    #     tmux send-keys 'nvim' C-m
+    # fi
+
+    # focus on window:
+    tmux select-window -t "Scripts I"
+    tmux attach-session -d
+fi

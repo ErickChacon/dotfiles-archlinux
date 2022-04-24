@@ -57,6 +57,13 @@ function Organize(root_path, ...)
     end
 endfunction
 
+function Snippet()
+    let folderpath = '~/.config/nvim/snippets'
+    let fullpath = folderpath . '/' . &filetype . '.snippets'
+    :execute 'split' fullpath
+endfunction
+
+
 let g:org_root = '~/documents/organizer'
 let g:org_academic = g:org_root . '/academic'
 let g:org_personal = g:org_root . '/personal'
@@ -84,6 +91,8 @@ command! Daily
 command! Cd
       \ call Cd()
 
+command! Snippet
+      \ call Snippet()
 
 " nnoremap <unique><script> <Plug>Organizer :Organize<CR>
 " nnoremap <unique><script> <Plug>gff :call Gofile()<CR>

@@ -12,7 +12,8 @@ return require('packer').startup(function()
     use 'wbthomason/packer.nvim'
 
     -- Tree-sitter: highlighting and indentation
-    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
+        config = function() require('user.treesitter') end }
 
     -- Comment (better experience with nvim-treesitter), sorround, bullets
     use {'numToStr/Comment.nvim', config = function() require('Comment').setup() end}
@@ -25,9 +26,15 @@ return require('packer').startup(function()
     use 'hrsh7th/nvim-cmp'
 
     -- Snippets
-    use 'L3MON4D3/LuaSnip'
+    -- use {'L3MON4D3/LuaSnip', config = function() require('luasnip').config.setup({history=false}) end}
+    use {'L3MON4D3/LuaSnip',
+        config = function() require('luasnip').config.set_config({
+            history = false,
+            region_check_events = "InsertEnter",
+        }) end}
+    -- use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
-    use 'honza/vim-snippets'
+    use 'ErickChacon/vim-snippets'
 
     -- Fuzzy finder
     use {'nvim-telescope/telescope.nvim',
@@ -37,6 +44,7 @@ return require('packer').startup(function()
     -- Aesthetics and colorschemes
     use 'edkolev/tmuxline.vim'
     use {'chentau/marks.nvim', config = function() require('user.marks') end}
+    use {'lewis6991/gitsigns.nvim', config = function() require('user.gitsigns') end}
     use 'ntpeters/vim-better-whitespace'
     use 'morhetz/gruvbox'
 
@@ -51,4 +59,5 @@ return require('packer').startup(function()
     -- Languages
     use 'JuliaEditorSupport/julia-vim'
 end)
+
 

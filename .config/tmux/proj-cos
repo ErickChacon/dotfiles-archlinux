@@ -9,7 +9,7 @@ has_session() {
 if has_session; then
     tmux attach-session -t $project_name -d
 else
-    bigproj="$HOME/documents/Projects"
+    bigproj="$HOME/documents/projects"
     proj="$bigproj/change-of-support"
     tmux new-session -d -c $proj -s $project_name
 
