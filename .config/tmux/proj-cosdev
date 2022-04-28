@@ -1,6 +1,6 @@
 #!/bin/sh
 
-project_name='Change-of-support'
+project_name='ChangeOfSupport'
 
 has_session() {
     tmux has-session -t $project_name 2>/dev/null
@@ -9,30 +9,29 @@ has_session() {
 if has_session; then
     tmux attach-session -t $project_name -d
 else
-    bigproj="$HOME/documents/projects"
-    proj="$bigproj/change-of-support"
+    proj="$HOME/documents/repositories/changeofsupport"
     tmux new-session -d -c $proj -s $project_name
 
     # window: notes
     tmux rename-window "notes"
     tmux send-keys "nvim README.md" C-m
 
-    # window: scripts
-    tmux new-window -c "$proj/scripts"
-    tmux rename-window "scripts"
-    tmux send-keys 'nvim' C-m
-
-    # window: src
-    tmux new-window -c "$proj/scripts"
+    # window: source
+    tmux new-window -c "$proj/src"
     tmux rename-window "src"
     tmux send-keys 'nvim' C-m
 
-    # window: paper
-    tmux new-window -c "$proj/writing/paper-change-of-support"
-    tmux rename-window "paper"
+    # window: literate
+    tmux new-window -c "$proj/literate"
+    tmux rename-window "literate"
+    tmux send-keys 'nvim' C-m
+
+    # window: documentation
+    tmux new-window -c "$proj/docs"
+    tmux rename-window "docs"
     tmux send-keys 'nvim' C-m
 
     # focus on window:
-    tmux select-window -t "scripts"
+    tmux select-window -t "src"
     tmux attach-session -d
 fi

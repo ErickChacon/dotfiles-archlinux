@@ -64,16 +64,10 @@ if [ -x "$(command -v docker)" ]; then
     dcomp-exec(){
     local current=$(pwd_short)
     local what=${1:-r}
-    if [ $what = "r" ]; then
+    if [[ $what =~ ^r ]]; then
         user=rstudio
-    elif [ $what = "julia" ]; then
+    elif [[ $what =~ ^julia ]]; then
         user=julia
-    elif [ $what = "juliat" ]; then
-        user=julia
-    elif [ $what = "julial" ]; then
-        user=julia
-    else
-        user=rstudio
     fi
     docker exec -ti -w /home/$user$current toolbox_$what bash
     }
