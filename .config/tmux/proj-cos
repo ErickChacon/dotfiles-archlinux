@@ -28,7 +28,7 @@ else
     tmux send-keys 'nvim' C-m
 
     # window: paper
-    tmux new-window -c "$proj/writing/paper-change-of-support"
+    tmux new-window -c "$proj/writing/paper"
     tmux rename-window "paper"
     tmux send-keys 'nvim' C-m
 

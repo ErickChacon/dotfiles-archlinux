@@ -85,3 +85,6 @@ pacman -S libreoffice-fresh
 
 # neovim
 pacman -S python-pynvim neovim
+
+# video player
+pacman -S mpv
