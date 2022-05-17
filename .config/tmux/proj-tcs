@@ -18,7 +18,7 @@ else
     tmux send-keys "nvim README.md" C-m
 
     # window: scripts 1
-    tmux new-window -c "$proj/scripts"
+    tmux new-window -c "$proj"
     tmux rename-window "Scripts I"
     tmux send-keys "nvim" C-m
 
