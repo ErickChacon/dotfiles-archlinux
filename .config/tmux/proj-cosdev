@@ -21,11 +21,6 @@ else
     tmux rename-window "src"
     tmux send-keys 'nvim' C-m
 
-    # window: literate
-    tmux new-window -c "$proj/literate"
-    tmux rename-window "literate"
-    tmux send-keys 'nvim' C-m
-
     # window: documentation
     tmux new-window -c "$proj/docs"
     tmux rename-window "docs"
