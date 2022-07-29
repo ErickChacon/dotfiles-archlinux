@@ -43,14 +43,15 @@ return require('packer').startup(function()
 
     -- Aesthetics and colorschemes
     use 'edkolev/tmuxline.vim'
-    use {'chentau/marks.nvim', config = function() require('user.marks') end}
+    use {'chentoast/marks.nvim', config = function() require('user.marks') end}
     use {'lewis6991/gitsigns.nvim', config = function() require('user.gitsigns') end}
     use 'ntpeters/vim-better-whitespace'
     use 'morhetz/gruvbox'
 
     -- Repl and navigation
     use 'jpalardy/vim-slime'
-    use {'aserowy/tmux.nvim', config = function() require('user.tmux') end}
+    -- use {'aserowy/tmux.nvim', config = function() require('user.tmux') end}
+    use {'aserowy/tmux.nvim'}
     use 'ton/vim-bufsurf'
     use {'jghauser/follow-md-links.nvim',
         requires = {'nvim-treesitter/nvim-treesitter'}

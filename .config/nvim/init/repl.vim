@@ -442,6 +442,8 @@ endfunction
 let g:slime_target = "tmux"
 let g:slime_no_mappings = 1
 let g:slime_cell_delimiter = "#%%"
+" let g:slime_python_ipython = 1
+let g:slime_bracketed_paste = 1
 nmap <leader>rf <Plug>SlimeConfig
 " basic commands
 nmap <silent> <leader>rq :call SlimeQuitSend()<CR>

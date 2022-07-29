@@ -20,3 +20,5 @@ keymaps.register("n", {
     ["<C-a>k"] = [[<cmd>lua require('tmux').resize_top()<cr>]],
     ["<C-a>l"] = [[<cmd>lua require('tmux').resize_right()<cr>]],
 })
+-- execute(string.format("resize-pane -t '%s' -%s 5", get_tmux_pane(), tmux_directions[direction]))
+-- lua/tmux/wrapper/tmux.lua
