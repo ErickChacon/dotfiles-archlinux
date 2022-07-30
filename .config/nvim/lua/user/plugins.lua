@@ -12,8 +12,10 @@ return require('packer').startup(function()
     use 'wbthomason/packer.nvim'
 
     -- Tree-sitter: highlighting and indentation
-    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
-        config = function() require('user.treesitter') end }
+    use {'nvim-treesitter/nvim-treesitter',
+        run = function() require('nvim-treesitter.install').update({with_sync = true}) end,
+        config = function() require('user.treesitter') end}
+    -- ~/.local/share/nvim/site/parser
 
     -- Comment (better experience with nvim-treesitter), sorround, bullets
     use {'numToStr/Comment.nvim', config = function() require('Comment').setup() end}
@@ -53,9 +55,9 @@ return require('packer').startup(function()
     -- use {'aserowy/tmux.nvim', config = function() require('user.tmux') end}
     use {'aserowy/tmux.nvim'}
     use 'ton/vim-bufsurf'
-    use {'jghauser/follow-md-links.nvim',
-        requires = {'nvim-treesitter/nvim-treesitter'}
-    }
+    -- use {'jghauser/follow-md-links.nvim',
+    --     requires = {'nvim-treesitter/nvim-treesitter'}
+    -- }
 
     -- Languages
     use 'JuliaEditorSupport/julia-vim'
