@@ -1,7 +1,6 @@
 require('nvim-treesitter.configs').setup({
-    ensure_installed = {"bash", "julia", "latex", "lua", "markdown", "python", "r", "vim"},
+    ensure_installed = {"bash", "julia", "latex", "lua", "markdown", "python", "r", "vim", "yaml"},
     sync_install = false,
-    ignore_install = { "gleam" },
 
     highlight = {
         enable = true,

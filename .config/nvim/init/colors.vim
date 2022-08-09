@@ -22,7 +22,7 @@ if g:scheme_name == "nord"
   hi SpellBad guifg=none
 elseif g:scheme_name == "gruvbox"
   set background=dark
-  let g:gruvbox_italic = 1
+  " let g:gruvbox_italic = 1
   let g:gruvbox_italicize_strings = 1
   let g:gruvbox_italicize_comments = 1
   let g:gruvbox_contrast_dark = "soft"
