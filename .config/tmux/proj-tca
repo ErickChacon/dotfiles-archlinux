@@ -1,16 +1,16 @@
 #!/bin/sh
 
-project_name='Gei-estimation'
+project_name='Capstone'
 
 has_session() {
     tmux has-session -t $project_name 2>/dev/null
 }
 
-if has_session; then
-    tmux attach-session -t $project_name -d
+if has_session ; then
+    tmux a -t $project_name -d
 else
-    bigproj="$HOME/documents/projects"
-    proj="$bigproj/nama-gei-estimation"
+    bigproj="$HOME/documents/teaching/uni-undergraduate"
+    proj="$bigproj/10-capstone"
     tmux new-session -d -c $proj -s $project_name
 
     # window: notes
@@ -18,14 +18,14 @@ else
     tmux send-keys "nvim README.md" C-m
 
     # window: scripts 1
-    tmux new-window -c "$proj/scripts"
+    tmux new-window -c "$proj"
     tmux rename-window "Scripts I"
-    tmux send-keys 'nvim' C-m
+    tmux send-keys "nvim" C-m
 
     # window: scripts 2
-    tmux new-window -c "$proj/scripts"
+    tmux new-window -c "$proj"
     tmux rename-window "Scripts II"
-    tmux send-keys 'nvim' C-m
+    tmux send-keys "nvim" C-m
 
     # window: makefile
     tmux new-window -c "$proj"
@@ -36,3 +36,4 @@ else
     tmux select-window -t "Scripts I"
     tmux attach-session -d
 fi
+

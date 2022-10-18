@@ -1,0 +1,37 @@
+#!/bin/sh
+
+project_name='Spifa'
+
+has_session() {
+    tmux has-session -t $project_name 2>/dev/null
+}
+
+if has_session; then
+    tmux attach-session -t $project_name -d
+else
+    proj="$HOME/documents/repositories/spifa"
+    tmux new-session -d -c $proj -s $project_name
+
+    # window: notes
+    tmux rename-window "notes"
+    tmux send-keys "nvim README.md" C-m
+
+    # window: source
+    tmux new-window -c "$proj/src"
+    tmux rename-window "src"
+    tmux send-keys 'nvim' C-m
+
+    # window: source
+    tmux new-window -c "$proj/R"
+    tmux rename-window "R"
+    tmux send-keys 'nvim' C-m
+
+    # window: documentation
+    tmux new-window -c "$proj/vignettes"
+    tmux rename-window "docs"
+    tmux send-keys 'nvim' C-m
+
+    # focus on window:
+    tmux select-window -t "src"
+    tmux attach-session -d
+fi
