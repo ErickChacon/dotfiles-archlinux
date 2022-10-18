@@ -27,6 +27,9 @@ return require('packer').startup(function()
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/nvim-cmp'
 
+    -- -- LSP
+    -- use 'neovim/nvim-lspconfig'
+
     -- Snippets
     -- use {'L3MON4D3/LuaSnip', config = function() require('luasnip').config.setup({history=false}) end}
     use {'L3MON4D3/LuaSnip',
@@ -52,15 +55,21 @@ return require('packer').startup(function()
 
     -- Repl and navigation
     use 'jpalardy/vim-slime'
-    -- use {'aserowy/tmux.nvim', config = function() require('user.tmux') end}
-    use {'aserowy/tmux.nvim'}
+    use {'aserowy/tmux.nvim', config = function() require('user.tmux') end}
     use 'ton/vim-bufsurf'
-    -- use {'jghauser/follow-md-links.nvim',
-    --     requires = {'nvim-treesitter/nvim-treesitter'}
-    -- }
+    use {'jghauser/follow-md-links.nvim',
+        requires = {'nvim-treesitter/nvim-treesitter'}
+    }
 
     -- Languages
     use 'JuliaEditorSupport/julia-vim'
+
+    -- Settings
+    -- require'lspconfig'.r_language_server.setup({
+    --     cmd = { "dcomp-exec
+    --     }
+    -- })
+    -- require'lspconfig'.pyright.setup{}
 end)
 
 

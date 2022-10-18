@@ -1,5 +1,7 @@
 require('nvim-treesitter.configs').setup({
-    ensure_installed = {"bash", "julia", "latex", "lua", "markdown", "python", "r", "vim", "yaml"},
+    ensure_installed = {
+        "bash", "julia", "latex", "lua", "markdown", "markdown_inline", "python", "r", "vim", "yaml"
+    },
     sync_install = false,
 
     highlight = {
