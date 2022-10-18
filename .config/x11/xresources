@@ -1,8 +1,8 @@
 ! following is the dpi for thinkvision
 ! Xft.dpi: 90
-! Xft.dpi: 96
+Xft.dpi: 96
 ! following is the dpi for samsung ultrawide
-Xft.dpi: 109
+! Xft.dpi: 109
 ! Xft.dpi: 120
 ! Xft.dpi: 144
 ! Xft.dpi: 168

@@ -57,6 +57,8 @@ fi
 xrdb ~/.config/x11/xresources
 xwallpaper --zoom /home/chaconmo/pictures/wallpapers/dt/0041.jpg
 dwmblocks &
-xcompmgr &
+# xcompmgr &
+# nohup "davmail ~/.config/davmail/davmail.properties &" > plophub.out
+nohup davmail ~/.config/davmail/davmail.properties > ~/.cache/nohup/nohup.out &
 exec dwm
-
+# nohup davmail davmail.properties &
