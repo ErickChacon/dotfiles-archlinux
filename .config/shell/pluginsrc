@@ -68,6 +68,10 @@ if [ -x "$(command -v docker)" ]; then
         user=rstudio
     elif [[ $what =~ ^julia ]]; then
         user=julia
+    elif [[ $what =~ ^makie ]]; then
+        user=julia
+    elif [[ $what =~ ^spatstat ]]; then
+        user=julia
     elif [[ $what =~ ^python ]]; then
         user=python
     fi
