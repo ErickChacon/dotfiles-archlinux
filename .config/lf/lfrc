@@ -47,12 +47,15 @@ cmd open ${{
     test -L $f && f=$(readlink -f $f)
     case $(file --mime-type $f -b) in
 	image/vnd.djvu|application/pdf|application/octet-stream|application/postscript) setsid -f zathura $fx >/dev/null 2>&1 ;;
-        image/png) setsid -f sxiv $f > /dev/null 2>&1;;
+        application/gzip) setsid -f xournalpp $f > /dev/null 2>&1;;
+        image/png|image/jpeg) setsid -f sxiv $f > /dev/null 2>&1;;
+        image/svg+xml) setsid -f inkscape $f > /dev/null 2>&1;;
         text/html) setsid -f $BROWSER $f > /dev/null 2>&1;;
         text/*) setsid -f st $EDITOR $f > /dev/null 2>&1;;
         *) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
 }}
+
 
 cmd bulkrename ${{
     old="$(mktemp)"
