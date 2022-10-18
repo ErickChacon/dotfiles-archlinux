@@ -70,6 +70,8 @@ pacman -S xournalpp
 # zsh
 pacman -S zsh zsh-syntax-highlighting
 zsh # to configure for the first time
+chsh -l
+chsh -s /usr/bin/zsh
 
 #  tabbed
 git clone https://git.suckless.org/tabbed
