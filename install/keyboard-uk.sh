@@ -1,8 +1,8 @@
-
-# # keyboard
-# localectl status
+# keyboard
 sudo pacman -S libxkbcommon libxkbcommon-x11
-localectl --no-convert set-x11-keymap gb pc105 "" ctrl:swapcaps
-# # setxkbmap -model pc105 -layout gb -option ctrl:swapcaps
+sudo localectl --no-convert set-x11-keymap gb pc105 "" ctrl:swapcaps
 localectl status
+
+# old config
+# setxkbmap -model pc105 -layout gb -option ctrl:swapcaps
 

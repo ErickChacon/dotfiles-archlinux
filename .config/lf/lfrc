@@ -20,7 +20,7 @@ set ifs "\n"
 # borders
 set drawbox
 # set nopreview
-# set ratios 1
+set ratios 1:2
 # set info size:time
 
 # leave some space at the top and the bottom of the screen
