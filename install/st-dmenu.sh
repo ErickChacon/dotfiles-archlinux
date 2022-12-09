@@ -8,3 +8,10 @@ cd ..
 # dmenu
 sudo pacman -S dmenu
 
+# dwm-blocks
+rm -rf dwmblocks
+git clone https://github.com/ErickChacon/dwmblocks.git
+cd dwmblocks
+git checkout patched
+sudo make clean install
+cd ..
