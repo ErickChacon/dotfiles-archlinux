@@ -1,7 +1,7 @@
-sudo pacman -S pacman-contrib
+# sudo pacman -S pacman-contrib
 
 # check the size of cached packages
-# du -sh /var/cache/pacman/pkg .cache/yay
+# du -sh /var/cache/pacman/pkg ~/.cache/yay
 
 # check the packages to be removed if keeping 3 versions
 # paccache -dvk3

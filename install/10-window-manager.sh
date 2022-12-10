@@ -40,6 +40,9 @@ git clone https://gitlab.com/dwt1/wallpapers dt
 # audio
 ./dotfiles-archlinux/install/sound.sh
 
+# cronie
+./dotfiles-archlinux/install/cron.sh
+
 # dotfiles
 # run symblinks.sh
 
