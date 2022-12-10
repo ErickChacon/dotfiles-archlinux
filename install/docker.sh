@@ -5,8 +5,9 @@ sudo mkdir /home/docker
 sudo mkdir /etc/docker
 echo "{\n\t\"data-root\": \"/home/docker\"\n}" | sudo tee /etc/docker/daemon.json
 sudo usermod -a -G docker $USER
-systemctl enable --now docker.service
-docker info
+sudo systemctl enable --now docker.service
+# reboot
+# docker info
 
 # sudo nvim /etc/docker/daemon.json
 # # {
