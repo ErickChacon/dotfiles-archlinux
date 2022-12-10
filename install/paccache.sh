@@ -1,4 +1,4 @@
-sudo pacman -Ss pacman-contrib
+sudo pacman -S pacman-contrib
 
 # check the size of cached packages
 # du -sh /var/cache/pacman/pkg .cache/yay

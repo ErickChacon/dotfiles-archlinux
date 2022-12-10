@@ -1,5 +1,5 @@
 # python provider
-sudo pacman -S python-pynvim
+sudo pacman -S python-pynvim xclip
 
 # packer plugin manager
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\

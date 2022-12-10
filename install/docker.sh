@@ -9,6 +9,11 @@ sudo systemctl enable --now docker.service
 # reboot
 # docker info
 
+
+
+
+
+
 # sudo nvim /etc/docker/daemon.json
 # # {
 # # 	"data-root": "/home/docker"

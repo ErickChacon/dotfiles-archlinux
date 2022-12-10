@@ -24,6 +24,7 @@ sudo pacman -S ripgrep fd
 
 # vim-like spreadsheet
 yay -S sc-im
+# libxlswriter: export to xlsx. Requires rebuild of sc-im
 
 # # # teams
 # # yay -S teams

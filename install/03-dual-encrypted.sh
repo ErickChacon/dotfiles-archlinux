@@ -112,7 +112,7 @@ mount --mkdir /dev/nvmeXn1pX /mnt/boot
 swapon /dev/MyVolGroup/swap
 
 # install arch
-pacstrap -K /mnt base base-devel linux linux-firmware lvm2 amd-ucode neovim tmux
+pacstrap -K /mnt base base-devel linux linux-firmware lvm2 amd-ucode neovim tmux pacman-contrib
 
 # # set-up pacman-key if any claimed by pacstrap
 # # https://wiki.archlinux.org/title/Pacman/Package_signing#Upgrade_system_regularly
