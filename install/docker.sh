@@ -1,8 +1,9 @@
 # install docker with cache space to /home/docker
 
 sudo pacman -S docker docker-compose
-sudo mkdir -p /home/docker
-sudo echo "{\n\t\"data-root\": \"/home/docker\"\n}" > /etc/docker/daemon.json
+sudo mkdir /home/docker
+sudo mkdir /etc/docker
+echo "{\n\t\"data-root\": \"/home/docker\"\n}" | sudo tee /etc/docker/daemon.json
 sudo usermod -a -G docker $USER
 systemctl enable --now docker.service
 docker info
