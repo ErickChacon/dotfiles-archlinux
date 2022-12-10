@@ -1,2 +1,5 @@
-yay -S zotero
-
+# # bibliography
+# sudo pacman -S zotero
+#
+# yay -S zotero
+#
