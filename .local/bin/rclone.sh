@@ -16,10 +16,10 @@ rclone sync \
     --exclude /organizer/personal/personal-information.md \
     --exclude .git/ --progress --retries 5
 
-
-
-
-
+# rclone sync \
+#     lancaster:documents/teaching/uni-postgraduate/02-bayesian-statistics \
+#     ~/documents/teaching/uni-postgraduate/02-bayesian-statistics \
+#     --exclude .git/ --progress --retries 5
 
 
 # rclone sync \

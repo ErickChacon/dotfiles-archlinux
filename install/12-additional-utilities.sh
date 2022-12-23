@@ -1,5 +1,8 @@
 # 9. install other software
 
+# power-related commands
+sudo pacman -S polkit
+
 # web explorer
 yay -S brave-bin
 
