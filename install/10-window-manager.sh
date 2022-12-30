@@ -38,7 +38,7 @@ git clone https://gitlab.com/dwt1/wallpapers dt
 ./dotfiles-archlinux/install/wallpaper.sh
 
 # audio
-./dotfiles-archlinux/install/sound.sh
+./dotfiles-archlinux/install/audio-and-video.sh
 
 # cronie
 ./dotfiles-archlinux/install/cron.sh
