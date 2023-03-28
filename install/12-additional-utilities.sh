@@ -42,3 +42,15 @@ yay -S sc-im
 # # pacman -S bluez bluez-utils
 # # systemctl start bluetooth.service
 #
+
+#### Need to organize from here
+
+# linux utitlies
+
+# usb ntfs support
+sudo pacman -S extra/ntfs-3g
+
+# copying tool
+sudo pacman rsync
+
+

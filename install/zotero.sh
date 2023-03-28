@@ -1,5 +1,4 @@
-# # bibliography
-# sudo pacman -S zotero
-#
-# yay -S zotero
-#
+# bibliography
+
+yay -S zotero-bin
+

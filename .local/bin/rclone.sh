@@ -1,5 +1,10 @@
 #!/bin/sh
 
+rclone sync \
+    ~/documents uni:documents \
+    --exlude personal-information.md \
+    --exclude .git/ --progress --retries 10
+
 # rclone sync \
 #     ~/documents lancaster:documents --exclude .git/ --progress --retries 1
 
@@ -11,10 +16,10 @@
 #     ~/documents/organizer/personal lancaster:documents/organizer/personal \
 #     --exclude personal-information.md  --progress --retries 1
 
-rclone sync \
-    ~/documents lancaster:documents \
-    --exclude /organizer/personal/personal-information.md \
-    --exclude .git/ --progress --retries 10
+# rclone sync \
+#     ~/documents lancaster:documents \
+#     --exclude /organizer/personal/personal-information.md \
+#     --exclude .git/ --progress --retries 10
 
 # rclone sync \
 #     lancaster:documents/teaching/uni-postgraduate/02-bayesian-statistics \
@@ -24,3 +29,4 @@ rclone sync \
 
 # rclone sync \
 #     lancaster:archive ~/archive --progress
+
