@@ -18,6 +18,7 @@ path_lf=~/.config/lf
 path_nvim=~/.config/nvim
 path_tmux=~/.config/tmux
 path_zathura=~/.config/zathura
+path_gromit=~/.config/gromit-mpx.cfg
 
 # Custom functions
 
@@ -55,6 +56,7 @@ overwrite=${1:-false}
 linkfile $path_dotfiles/.zprofile $path_zprofile $overwrite
 linkfile $path_dotfiles/.bash_profile $path_bash_profile $overwrite
 linkfile $path_dotfiles/.bashrc $path_bashrc $overwrite
+linkfile $path_dotfiles/.config/gromit-mpx.cfg $path_gromit $overwrite
 linkdir $path_dotfiles/.config/lf $path_lf $overwrite
 linkdir $path_dotfiles/.config/nvim $path_nvim $overwrite
 linkdir $path_dotfiles/.config/shell $path_shell $overwrite
