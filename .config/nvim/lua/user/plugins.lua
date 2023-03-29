@@ -15,7 +15,7 @@ return require('packer').startup(function()
     use {'nvim-treesitter/nvim-treesitter',
         run = function() require('nvim-treesitter.install').update({with_sync = true}) end,
         config = function() require('user.treesitter') end}
-    -- ~/.local/share/nvim/site/parser
+    -- ~/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/*.so
 
     -- Comment (better experience with nvim-treesitter), sorround, bullets
     use {'numToStr/Comment.nvim', config = function() require('Comment').setup() end}

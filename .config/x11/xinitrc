@@ -39,7 +39,20 @@ xrdb -merge ~/.config/x11/xdpi-$(cat /etc/hostname)
 
 # dwm
 
-xwallpaper --zoom /home/chaconmo/pictures/wallpapers/dt/0041.jpg
+xwallpaper --zoom /home/chaconmo/pictures/wallpapers/dt/0046.jpg
+# xwallpaper --zoom /home/chaconmo/pictures/wallpapers/dt/0041.jpg
+# xwallpaper --zoom /home/chaconmo/pictures/wallpapers/dt/0305.jpg
+# xwallpaper --zoom /home/chaconmo/pictures/wallpapers/dt/0187.jpg
+# xwallpaper --zoom /home/chaconmo/pictures/wallpapers/dt/0074.jpg
+# xwallpaper --zoom /home/chaconmo/pictures/wallpapers/dt/0085.jpg
+# xwallpaper --zoom /home/chaconmo/pictures/wallpapers/dt/0107.jpg
+# xwallpaper --zoom /home/chaconmo/pictures/wallpapers/dt/0006.jpg
+# xwallpaper --zoom /home/chaconmo/pictures/wallpapers/dt/0016.jpg
+# xwallpaper --zoom /home/chaconmo/pictures/wallpapers/dt/0031.jpg
+# xwallpaper --zoom /home/chaconmo/pictures/wallpapers/dt/0044.jpg
+# xwallpaper --zoom /home/chaconmo/pictures/wallpapers/flickr/49414742368_f28c5ee506_k.jpg
+# xwallpaper --zoom /home/chaconmo/pictures/wallpapers/flickr/44656855314_3fa10aad6d_k.jpg
+# xwallpaper --zoom /home/chaconmo/pictures/wallpapers/flickr/31505404108_5aeee861b7_k.jpg
 dwmblocks &
 exec dwm
 
