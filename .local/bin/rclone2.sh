@@ -1,30 +1,30 @@
 #!/bin/sh
 
+rclone sync \
+    uni:documents/organizer \
+    ~/documents/organizer \
+    --exclude /personal/personal-information.md \
+    --exclude .git/ --progress --retries 10
+
+rclone sync \
+    uni:documents/teaching \
+    ~/documents/teaching \
+    --exclude .git/ --progress --retries 10
+
 # rclone sync \
-#     uni:documents/organizer \
-#     ~/documents/organizer \
-#     --exclude /personal/personal-information.md \
+#     uni:documents/projects/change-of-support \
+#     ~/documents/projects/change-of-support \
 #     --exclude .git/ --progress --retries 10
-#
-# rclone sync \
-#     uni:documents/teaching \
-#     ~/documents/teaching \
-#     --exclude .git/ --progress --retries 10
-#
-# # rclone sync \
-# #     uni:documents/projects/change-of-support \
-# #     ~/documents/projects/change-of-support \
-# #     --exclude .git/ --progress --retries 10
-#
-# rclone sync \
-#     uni:documents/repositories/dotfiles-archlinux \
-#     ~/documents/repositories/dotfiles-archlinux \
-#     --exclude .git/ --progress --retries 10
-#
-# rclone sync \
-#     uni:documents/repositories/toolbox \
-#     ~/documents/repositories/toolbox \
-#     --exclude .git/ --progress --retries 10
+
+rclone sync \
+    uni:documents/repositories/dotfiles-archlinux \
+    ~/documents/repositories/dotfiles-archlinux \
+    --exclude .git/ --progress --retries 10
+
+rclone sync \
+    uni:documents/repositories/toolbox \
+    ~/documents/repositories/toolbox \
+    --exclude .git/ --progress --retries 10
 
 rclone sync \
     uni:documents/texmf \
