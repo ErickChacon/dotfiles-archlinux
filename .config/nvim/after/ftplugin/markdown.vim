@@ -1,6 +1,6 @@
-" setlocal textwidth=85
-" setlocal spell
-" setlocal nofoldenable
+setlocal textwidth=85
+setlocal spell
+setlocal nofoldenable
 
 " call textobj#user#plugin('chunk', {
 " \   'angle': {
