@@ -417,6 +417,8 @@ endfunction
 function SlimeMakeSend()
     if &filetype == 'tex'
         let cmd = "make"
+    elseif &filetype == 'markdown'
+        let cmd = "make"
     else
         let cmd = "reprodown::makefile(); system('make')"
     endif
