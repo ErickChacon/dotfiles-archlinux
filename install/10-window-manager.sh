@@ -6,7 +6,10 @@ git clone https://github.com/ErickChacon/dotfiles-archlinux.git
 cd dotfiles-archlinux
 ./install/git-config.sh
 cat ~/.ssh/id_rsa.pub > git-ssh
-# copy that file to an usb and paste in github and gitlab
+# copy that file to an usb and paste in github and gitlab (or use openssh alternatively)
+# server (start sshd): sudo systemctl start sshd
+# server (check sshd): sudo systemctl status sshd
+# local (send file): scp ~/git-ssh serveruser@serverdomain:/path/to/copy
 cd ..
 rm -rf dotfiles-archlinux
 git clone git@github.com:ErickChacon/dotfiles-archlinux.git
