@@ -51,6 +51,6 @@ yay -S sc-im
 sudo pacman -S extra/ntfs-3g
 
 # copying tool
-sudo pacman -S rsync
+sudo pacman -S rsync unison
 
 
