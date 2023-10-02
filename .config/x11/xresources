@@ -11,7 +11,7 @@
 Xft.dpi: 144
 
 
-st.font: DroidSansMono Nerd Font:size=12:antialias=true:autohint=true;
+st.font: DroidSansM Nerd Font:size=12:antialias=true:autohint=true;
 st.alpha: 0.92
 
 !! gruvbox:
