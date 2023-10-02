@@ -6,7 +6,7 @@ cd && git clone --depth 1 https://github.com/powerline/fonts.git && \
 # Devicon: DroidSansMono
 mkdir -p ~/.local/share/fonts
 cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" \
-    https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
+    https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/DroidSansMono/DroidSansMNerdFont-Regular.otf
 
 # # Devicon font (this is very slow)
 # cd && git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git && \
