@@ -2,6 +2,10 @@
 
 project_name='ChangeOfSupport'
 
+if ! mountpoint -q /home/chaconmo/docserver; then
+    sshfs -o default_permissions,uid=1000,gid=998 geohealth1:/home/chaconea/documents ~/docserver
+fi
+
 has_session() {
     tmux has-session -t $project_name 2>/dev/null
 }
@@ -9,7 +13,7 @@ has_session() {
 if has_session; then
     tmux attach-session -t $project_name -d
 else
-    proj="$HOME/documents/repositories/changeofsupport"
+    proj="$HOME/docserver/repositories/changeofsupport"
     tmux new-session -d -c $proj -s $project_name
 
     # window: notes

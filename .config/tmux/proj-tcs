@@ -20,12 +20,12 @@ else
     # window: scripts 1
     tmux new-window -c "$proj"
     tmux rename-window "Scripts I"
-    tmux send-keys "nvim" C-m
+    tmux send-keys "lf" C-m
 
     # window: scripts 2
     tmux new-window -c "$proj"
     tmux rename-window "Scripts II"
-    tmux send-keys "nvim" C-m
+    tmux send-keys "lf" C-m
 
     # window: makefile
     tmux new-window -c "$proj"

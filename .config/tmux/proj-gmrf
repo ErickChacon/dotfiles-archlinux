@@ -1,6 +1,6 @@
 #!/bin/sh
 
-project_name='ChangeOfSupport'
+project_name='GMRFs'
 
 has_session() {
     tmux has-session -t $project_name 2>/dev/null
@@ -9,7 +9,7 @@ has_session() {
 if has_session; then
     tmux attach-session -t $project_name -d
 else
-    proj="$HOME/documents/repositories/changeofsupport"
+    proj="$HOME/documents/repositories/GMRFs.jl"
     tmux new-session -d -c $proj -s $project_name
 
     # window: notes
@@ -21,17 +21,17 @@ else
     tmux rename-window "src"
     tmux send-keys 'lf' C-m
 
-    # window: source
-    tmux new-window -c "$proj/test"
-    tmux rename-window "test"
-    tmux send-keys 'lf' C-m
+    # # window: source
+    # tmux new-window -c "$proj/test"
+    # tmux rename-window "test"
+    # tmux send-keys 'nvim' C-m
 
     # window: documentation
-    tmux new-window -c "$proj/docs"
+    tmux new-window -c "$proj/../gmrf"
     tmux rename-window "docs"
     tmux send-keys 'lf' C-m
 
     # focus on window:
-    tmux select-window -t "src"
+    tmux select-window -t "docs"
     tmux attach-session -d
 fi

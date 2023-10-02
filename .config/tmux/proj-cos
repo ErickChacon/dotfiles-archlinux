@@ -20,17 +20,17 @@ else
     # window: scripts
     tmux new-window -c "$proj/scripts"
     tmux rename-window "scripts"
-    tmux send-keys 'nvim' C-m
+    tmux send-keys 'lf' C-m
 
     # window: src
     tmux new-window -c "$proj/scripts"
     tmux rename-window "src"
-    tmux send-keys 'nvim' C-m
+    tmux send-keys 'lf' C-m
 
     # window: paper
     tmux new-window -c "$proj/writing/paper"
     tmux rename-window "paper"
-    tmux send-keys 'nvim' C-m
+    tmux send-keys 'lf' C-m
 
     # focus on window:
     tmux select-window -t "scripts"

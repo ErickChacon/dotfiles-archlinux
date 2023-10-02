@@ -1,12 +1,16 @@
 
 " MAPPING AND KEYBOARD
+" "\" is a good mapleader for UK keyboard, but ";" seems to be better for other layuouts.
+map <SPACE> <Leader>
+let mapleader = "\\"                        " map leader as backslash (default)
 let mapleader = "\\"                         " map leader as backslash (default)
-let maplocalleader = "\\"                    " map localleader as backslash
+let maplocalleader = ";"                    " map localleader as backslash
 set backspace=indent,eol,start               " use backspace to delete in insert mode
 
 " MODIFICATIONS
 set autoread                                 " read changes outside nvim
 au FocusGained * :checktime                  " read changes outside nvim
+" au CursorHold * checktime
 set backupcopy=yes                           " able to edit docker volumne file
 set autowrite                                " save when moving between buffers
 " set autowriteall                             " save when edit
