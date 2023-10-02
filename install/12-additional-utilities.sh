@@ -1,7 +1,7 @@
 # 9. install other software
 
-# power-related commands
-sudo pacman -S polkit
+# # power-related commands (already installed)
+# sudo pacman -S polkit
 
 # web explorer
 yay -S brave-bin
@@ -22,7 +22,7 @@ sudo pacman -S lf
 sudo pacman -S xournalpp
 yay -S gromit-mpx
 
-# fuzy finder
+# fuzy finder (alrey installed in neovim.sh)
 sudo pacman -S ripgrep fd
 
 # vim-like spreadsheet
@@ -51,6 +51,6 @@ yay -S sc-im
 sudo pacman -S extra/ntfs-3g
 
 # copying tool
-sudo pacman rsync
+sudo pacman -S rsync
 
 
