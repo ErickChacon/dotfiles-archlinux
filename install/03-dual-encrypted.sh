@@ -184,7 +184,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 pacman -Syu
 
 # install networkmanager
-pacman -S networkmanager
+pacman -S networkmanager nm-connection-editor
 systemctl enable NetworkManager
 
 # 7. Create users
