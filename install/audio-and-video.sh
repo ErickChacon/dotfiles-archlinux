@@ -8,3 +8,5 @@ sudo pacman -S mpd mpc ncmpcpp
 # mpc: command client of mpd
 # ncmpcpp: simple gui client of mpd
 
+# when asked about jack2 or pipewire-jack, I selected pipewire-jack
+
