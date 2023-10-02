@@ -39,7 +39,7 @@ yay -S sc-im
 #
 #
 # # # bluetooth
-# # pacman -S bluez bluez-utils
+# # sudo pacman -S bluez bluez-utils
 # # systemctl start bluetooth.service
 #
 

@@ -5,7 +5,7 @@ yay -S woeusb-ng
 # Use gui interface to create windows installer. You just need to select the iso file and
 # the usb.
 
-woeusbgui
+sudo woeusbgui
 
 # Insert usb bootable installer.
 # Clean ssd to have all as unallocated space
@@ -21,9 +21,10 @@ exit
 # Select remaining space, select new so windows will create the required paritions and
 # proceed with installation.
 
-
 # Setup UTC time in Windows (https://wiki.archlinux.org/title/System_time)
-# - Open regedit and add a DWORD value with hexadecimal value 1 to the registry:
+# - Open regedit 
+# - Under: HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation
+# - Add a DWORD value with name RealTimeIsUniversal and it to hexadecimal value 1 to the registry:
 # - Sincronize time on settings.
 
 # After windows install, use the BIOS to set-up the boot order

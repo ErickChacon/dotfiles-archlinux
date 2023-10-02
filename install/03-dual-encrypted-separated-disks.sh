@@ -42,14 +42,9 @@ ls /sys/firmware/efi/efivars
 # working internet (use ethernet)
 ping google.com
 
-# update the system clock
-timedatectl set-ntp true
-timedatectl status
+# update the system clock (the installer automatically update the time if connected to
+# internet)
 timedatectl
-
-# # if timezone is not recognized  you can manually set it up
-# timedatectl list-timezones | grep Lima
-# timedatectl set-timezone America/Lima
 
 # 3. Prepare and encrypt disk
 # One partition (/dev/sdX1) will be for UEFI boot and another (/dev/nvmXn1p1) for the
@@ -57,17 +52,17 @@ timedatectl
 
 # 3.1. Partition disk
 fdisk -l
-fdisk /dev/sdX
+fdisk /dev/nvmXn1
 
-# # create a new label (g)
-# # add a new partition for UEFI
-# n
-# 1
-# +550M
-# # change partition 1 type to EFI
-# t
-# 1
-# EF
+# create a new label (g)
+# add a new partition for UEFI
+n
+1
++550M
+# change partition 1 type to EFI
+t
+1
+EF
 
 # add a new partition for LVM (remaning size)
 n
@@ -82,11 +77,11 @@ w
 # 3.2. Set-up encrypted LVM partition
 
 # encrypt lvm partition (/dev/nvmXn1p1)
-cryptsetup luksFormat /dev/nvmXn1p1
+cryptsetup luksFormat /dev/nvmXn1p2
 YES
 
 # open encrypted partition to format it
-cryptsetup open /dev/nvmXn1p1 cryptlvm
+cryptsetup open /dev/nvmXn1p2 cryptlvm
 
 # create physical volume for the encrypted partition
 pvcreate /dev/mapper/cryptlvm
@@ -102,7 +97,7 @@ lvcreate -l 100%FREE MyVolGroup -n home
 # 4. Install arch
 
 # format filesystems
-# mkfs.fat -F32 /dev/sdX1
+mkfs.fat -F32 /dev/nvmXn1p1
 mkfs.ext4 /dev/MyVolGroup/root
 mkfs.ext4 /dev/MyVolGroup/home
 mkswap /dev/MyVolGroup/swap
@@ -115,6 +110,7 @@ swapon /dev/MyVolGroup/swap
 
 # install arch
 pacstrap -K /mnt base base-devel linux linux-firmware lvm2 amd-ucode neovim tmux pacman-contrib
+# pacstrap -K /mnt base base-devel linux linux-firmware lvm2 intel-ucode neovim tmux pacman-contrib
 
 # # set-up pacman-key if any claimed by pacstrap
 # # https://wiki.archlinux.org/title/Pacman/Package_signing#Upgrade_system_regularly
@@ -131,8 +127,9 @@ arch-chroot /mnt
 
 # set timezone (e.g. America/Lima)
 ln -sf /usr/share/zoneinfo/America/Lima /etc/localtime
+# ln -sf /usr/share/zoneinfo/Asia/Riyadh /etc/localtime
 
-# set hardware clock
+# set hardware clock from the system clock and update (/etc/adjtime)
 hwclock --systohc
 
 # locale and uncomment
@@ -165,7 +162,6 @@ passwd
 
 # set up mkinitcpio for encrypted filesystem (keyboard, keymap, encrypt and lvm2)
 nvim /etc/mkinitcpio.conf
-# HOOKS=(base udev autodetect keyboard keymap consolefont modconf block encrypt lvm2 filesystems fsck)
 # HOOKS=(base udev autodetect modconf kms keyboard keymap consolefont block encrypt lvm2 filesystems fsck)
 mkinitcpio -p linux
 
@@ -177,7 +173,8 @@ blkid | grep /dev/nvmXn1p1 >> deleteme
 # /dev/nvmXn1p1: UUID=....
 # set up grub for encrypted lvm partition
 nvim /etc/default/grub
-# GRUB_CMDLINE_LINUX="cryptdevice=UUID=myuuid:cryptlvm root=/dev/MyVolGroup/root"
+# GRUB_CMDLINE_LINUX="cryptdevice=UUID=myuuid:cryptlvm root=/dev/MyVolGroup/root resume=/dev/MyVolGroup/swap"
+# generate grub loader
 grub-mkconfig -o /boot/grub/grub.cfg
 
 # update all system
@@ -187,23 +184,11 @@ pacman -Syu
 pacman -S networkmanager
 systemctl enable NetworkManager
 
-# 7. Create users
-# With all the previous steps we already have an arch system with internet connection.
-
-# create users
-useradd -m -g wheel user1
-passwd user1
-
-useradd -m -g user2
-passwd user2
-
-EDITOR=/usr/bin/nvim visudo
-# uncomment wheel group
-
 # 7. Dual boot on grub
 # In case os-prober does not work, we can restart and do the following
 nvim /etc/default/grub
 # uncomment GRUB_DISABLE_OS_PROBER=false
+mount --mkdir /dev/windows-efi-partition /mnt2
 os-prober
 grub-mkconfig -o /boot/grub/grub.cfg
 
@@ -211,4 +196,22 @@ grub-mkconfig -o /boot/grub/grub.cfg
 nvim /etc/default/grub
 # for example modify: GRUB_DEFAULT=2
 grub-mkconfig -o /boot/grub/grub.cfg
+
+
+# 7. Create users
+# With all the previous steps we already have an arch system with internet connection.
+
+useradd -m -G wheel user1
+passwd user1
+
+# # create users
+# useradd -m -g wheel user1
+# passwd user1
+#
+# useradd -m -g user2
+# passwd user2
+
+EDITOR=/usr/bin/nvim visudo
+# uncomment wheel group
+
 
