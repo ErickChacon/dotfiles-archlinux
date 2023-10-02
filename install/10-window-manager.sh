@@ -14,7 +14,7 @@ cd ..
 rm -rf dotfiles-archlinux
 git clone git@github.com:ErickChacon/dotfiles-archlinux.git
 
-# keyboard
+# keyboard (it did not work inmediately)
 ./dotfiles-archlinux/install/keyboard-uk.sh
 
 # install yay
