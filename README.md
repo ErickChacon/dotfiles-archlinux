@@ -13,3 +13,7 @@ xinput list-props deviceid
 # identify id for "libinput Tapping Enabled (346)"
 xinput set-prop 11 346 1
 ```
+
+## zsh
+
+Remember to create ~/.cache/zsh/
