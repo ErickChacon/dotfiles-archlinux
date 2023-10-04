@@ -53,4 +53,8 @@ sudo pacman -S extra/ntfs-3g
 # copying tool
 sudo pacman -S rsync unison
 
+# mount directories from server
+sudo pacman -S sshfs
+
+
 

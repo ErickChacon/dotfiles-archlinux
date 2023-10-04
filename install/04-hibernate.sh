@@ -1,6 +1,7 @@
 
 # add resume to the mkinitcpio hooks
-nvim /etc/mkinitcpio.conf
+# nvim /etc/mkinitcpio.conf
+sudoedit /etc/mkinitcpio.conf
 # HOOKS=(base udev autodetect keyboard keymap consolefont modconf block encrypt lvm2 filesystems resume fsck)
 mkinitcpio -p linux
 
@@ -13,6 +14,9 @@ grub-mkconfig -o /boot/grub/grub.cfg
 nvim /etc/systemd/logind.conf
 #IdleAction=suspend
 #IdleActionSec=10min
+
+# change the following if you do not want to sleep when the laptop is closed
+#HandleLidSwitch=ignore
 
 
 
