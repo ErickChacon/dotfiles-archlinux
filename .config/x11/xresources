@@ -1,6 +1,6 @@
 ! following is the dpi for thinkvision
 ! Xft.dpi: 90
-! Xft.dpi: 96
+Xft.dpi: 96
 ! following is the dpi for samsung ultrawide
 ! Xft.dpi: 109
 ! Xft.dpi: 120
@@ -8,7 +8,7 @@
 ! Xft.dpi: 168
 ! Xft.dpi: 192
 ! following is the dpi for samsung wide 4k
-Xft.dpi: 144
+! Xft.dpi: 144
 
 
 st.font: DroidSansM Nerd Font:size=12:antialias=true:autohint=true;

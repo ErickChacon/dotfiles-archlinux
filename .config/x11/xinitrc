@@ -32,12 +32,12 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# custom settings (dpi, colors)
+# custom settings like dpi and colors (optionally depending of the machine)
 
 xrdb ~/.config/x11/xresources
 xrdb -merge ~/.config/x11/xdpi-$(cat /etc/hostname)
 
-# dwm
+# window manafer set up (dwm)
 
 xwallpaper --zoom /home/chaconmo/pictures/wallpapers/dt/0046.jpg
 # xwallpaper --zoom /home/chaconmo/pictures/wallpapers/dt/0041.jpg
@@ -55,8 +55,9 @@ xwallpaper --zoom /home/chaconmo/pictures/wallpapers/dt/0046.jpg
 # xwallpaper --zoom /home/chaconmo/pictures/wallpapers/flickr/31505404108_5aeee861b7_k.jpg
 dwmblocks &
 exec dwm
-
 # xcompmgr &
+
+# davmail settings
 ### nohup "davmail ~/.config/davmail/davmail.properties &" > plophub.out
 # nohup davmail ~/.config/davmail/davmail.properties > ~/.cache/nohup/nohup.out &
 ### nohup davmail davmail.properties &
