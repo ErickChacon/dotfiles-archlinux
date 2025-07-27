@@ -57,9 +57,9 @@ return require('packer').startup(function()
     use 'jpalardy/vim-slime'
     use {'aserowy/tmux.nvim', config = function() require('user.tmux') end}
     use 'ton/vim-bufsurf'
-    use {'jghauser/follow-md-links.nvim',
-        requires = {'nvim-treesitter/nvim-treesitter'}
-    }
+    -- use {'jghauser/follow-md-links.nvim',
+    --     requires = {'nvim-treesitter/nvim-treesitter'}
+    -- }
 
     -- Languages
     use 'JuliaEditorSupport/julia-vim'
