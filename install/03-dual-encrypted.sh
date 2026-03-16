@@ -1,5 +1,14 @@
 # Disable secure boot
 
+
+Windows:
+
+- Create a restore point
+- Bisable bitlocker encryption
+- Disk managment
+    - Right click disk
+    - Shrink Volume (the size you enter is the new empty space)
+
 # Basic Arch installation with encryption (LVM on LUKS)
 
 # 0. Setup UTC time in Windows (https://wiki.archlinux.org/title/System_time)
@@ -20,7 +29,7 @@ lsblk
 
 # create bootable usb
 # sudo dd if=archlinux-2020.11.01-x86_64.iso of=/dev/sdX status=progress
-sudo dd if=installers/archlinux/archlinux-2022.12.01-x86_64.iso of=/dev/sda status=progress
+sudo dd if=archlinux-2026.03.01-x86_64.iso of=/dev/sda status=progress
 
 # 2. Boot the usb installer and prepare
 
@@ -38,9 +47,12 @@ loadkeys uk
 
 # verify uefi boot mode (uefi if files exist)
 ls /sys/firmware/efi/efivars
+# cat /sys/firmware/efi/fw_platform_size (64 -> 64 bit UEFI)
 
 # working internet (use ethernet)
 ping google.com
+# if not ethernet, connect to wifi with iwctl
+
 
 # update the system clock
 timedatectl set-ntp true
@@ -167,13 +179,14 @@ passwd
 nvim /etc/mkinitcpio.conf
 # HOOKS=(base udev autodetect keyboard keymap consolefont modconf block encrypt lvm2 filesystems fsck)
 # HOOKS=(base udev autodetect modconf kms keyboard keymap consolefont block encrypt lvm2 filesystems fsck)
+# HOOKS=(base udev autodetect microcode modconf kms keyboard keymap consolefont block encrypt lvm2 filesystems fsck)
 mkinitcpio -p linux
 
 # install grub and other packages
 pacman -S grub efibootmgr dosfstools os-prober mtools
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 # find uuid of the lvm partition
-blkid | grep /dev/nvmXn1p1 >> deleteme
+blkid | grep /dev/nvmXn1pX >> deleteme
 # /dev/nvmXn1p1: UUID=....
 # set up grub for encrypted lvm partition
 nvim /etc/default/grub

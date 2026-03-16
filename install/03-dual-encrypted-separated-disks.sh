@@ -126,8 +126,9 @@ genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 
 # set timezone (e.g. America/Lima)
-ln -sf /usr/share/zoneinfo/America/Lima /etc/localtime
+# ln -sf /usr/share/zoneinfo/America/Lima /etc/localtime
 # ln -sf /usr/share/zoneinfo/Asia/Riyadh /etc/localtime
+ln -sf /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
 
 # set hardware clock from the system clock and update (/etc/adjtime)
 hwclock --systohc
@@ -142,9 +143,11 @@ locale-gen
 # set language and console
 nvim /etc/locale.conf
 # LANG=en_GB.UTF-8
+# LANG=en_US.UTF-8
 
 nvim /etc/vconsole.conf
 # KEYMAP=uk
+# KEYMAP=us
 
 # write desired hostname (e.g. dell-g5, home) at
 nvim /etc/hostname
@@ -204,6 +207,10 @@ grub-mkconfig -o /boot/grub/grub.cfg
 useradd -m -G wheel user1
 passwd user1
 
+useradd -m user1
+passwd user1
+usermod -aG wheel user1
+
 # # create users
 # useradd -m -g wheel user1
 # passwd user1
@@ -212,6 +219,6 @@ passwd user1
 # passwd user2
 
 EDITOR=/usr/bin/nvim visudo
-# uncomment wheel group
+# uncomment wheel group to execute any command
 
 

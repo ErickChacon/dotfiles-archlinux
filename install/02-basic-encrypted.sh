@@ -28,6 +28,7 @@ loadkeys uk
 
 # verify uefi boot mode (uefi if files exist)
 ls /sys/firmware/efi/efivars
+# cat /sys/firmware/efi/fw_platform_size (64 -> 64 bit UEFI)
 
 # working internet (use ethernet)
 ping google.com

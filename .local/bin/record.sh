@@ -24,4 +24,5 @@ position=${2:-center}
 #     ffmpeg -f pulse -i default -f x11grab -s 3440x1440 -i :0.0 /home/chaconmo/cloud/uni/${1}.mp4
 # fi
 
-ffmpeg -f pulse -i default -f x11grab -i :0.0 /home/chaconmo/documents/uni/${1}.mp4
+# ffmpeg -f pulse -i default -f x11grab -i :0.0 /home/chaconmo/documents/uni/${1}.mp4
+ffmpeg -f pulse -i default -f x11grab -i :0.0 /home/chaconmo/records/${1}.mp4

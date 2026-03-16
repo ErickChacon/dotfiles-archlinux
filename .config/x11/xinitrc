@@ -53,7 +53,7 @@ xwallpaper --zoom /home/chaconmo/pictures/wallpapers/dt/0046.jpg
 # xwallpaper --zoom /home/chaconmo/pictures/wallpapers/flickr/49414742368_f28c5ee506_k.jpg
 # xwallpaper --zoom /home/chaconmo/pictures/wallpapers/flickr/44656855314_3fa10aad6d_k.jpg
 # xwallpaper --zoom /home/chaconmo/pictures/wallpapers/flickr/31505404108_5aeee861b7_k.jpg
-dwmblocks &
+# dwmblocks &
 exec dwm
 # xcompmgr &
 

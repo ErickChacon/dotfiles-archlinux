@@ -1,0 +1,48 @@
+#!/bin/sh
+
+rclone sync \
+    uni:documents/organizer \
+    ~/documents/organizer \
+    --exclude /personal/personal-information.md \
+    --exclude .git/ --progress --retries 10
+
+rclone sync \
+    uni:documents/teaching \
+    ~/documents/teaching \
+    --exclude .git/ --progress --retries 10
+
+rclone sync \
+    uni:documents/repositories \
+    ~/documents/repositories \
+    --exclude .git/ --progress --retries 10
+
+rclone sync \
+    uni:documents/texmf \
+    ~/documents/texmf \
+    --exclude .git/ --progress --retries 10
+
+# rclone sync \
+#     ~/documents/organizer \
+#     personal:documents/organizer \
+#     --exclude /personal/personal-information.md \
+#     --exclude .git/ --progress --retries 10 --size-only --transfers=8 --checkers=8
+#
+# rclone sync \
+#     ~/documents/teaching \
+#     personal:documents/teaching \
+#     --exclude .git/ --progress --retries 10 --size-only --transfers=8 --checkers=8
+
+rclone sync \
+    ~/documents/projects \
+    personal:documents/projects \
+    --exclude .git/ --progress --retries 10 --size-only --transfers=8 --checkers=8 --drive-chunk-size=256M
+
+# rclone sync \
+#     ~/documents/repositories \
+#     personal:documents/repositories \
+#     --exclude .git/ --progress --retries 10
+#
+# rclone sync \
+#     ~/documents/texmf \
+#     personal:documents/texmf \
+#     --exclude .git/ --progress --retries 10

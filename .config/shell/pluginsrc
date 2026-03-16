@@ -75,7 +75,8 @@ if [ -x "$(command -v docker)" ]; then
     elif [[ $what =~ ^python ]]; then
         user=python
     fi
-    docker exec -ti -w /home/$user$current toolbox_$what bash
+    # docker exec -ti -w /home/$user$current toolbox_$what bash
+    docker exec -ti -w /home/rstudio$current toolbox_$what bash
     }
 
 fi
